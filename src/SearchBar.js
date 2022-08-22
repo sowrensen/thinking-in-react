@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 
 export default class SearchBar extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {}
-  }
   render() {
     return (
       <form>
-        <input type="text" name='keyword'  placeholder='Search...' />
+        <input type="text" name='keyword' onChange={(event) => this.props.onKeywordChange(event.target.value)} placeholder='Search...' />
         <p>
-          <input type="checkbox" /> {' '} Only show product in stock
+          <input type="checkbox" onChange={(event) => this.props.onInStockChange(event.target.checked)} /> {' '} Only show product in stock
         </p>
       </form>
     )
